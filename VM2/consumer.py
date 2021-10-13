@@ -42,12 +42,18 @@ for msg in consumer:
     # nor am I showing any code to connect to a backend database sink to
     # dump the incoming data. You will have to do that for the assignment.
     #database.save(msg.value)
-    #file.write(msg.value)
-    file.write("ggggggggg")
-    #for i in msg.value.items():
-    #    file.write("ggggggggg")
-        
+    file = open("consumer_output.txt", 'a')
+    str = ""
+    for i in msg.value.items():
+        str += i[0]
+        str += ","
+        str += i[1]
+        str += ","
+    str += "\n"
+    file.write(str)
+    file.close()           
     print (msg.value)
+    time.sleep(1)
 
 # we are done. As such, we are not going to get here as the above loop
 # is a forever loop.
