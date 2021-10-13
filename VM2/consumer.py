@@ -43,8 +43,9 @@ for msg in consumer:
     # dump the incoming data. You will have to do that for the assignment.
     #database.save(msg.value)
     #file.write(msg.value)
-    for i in msg.value.items():
-        file.write("ggggggggg")
+    file.write("ggggggggg")
+    #for i in msg.value.items():
+    #    file.write("ggggggggg")
         
     print (msg.value)
 
