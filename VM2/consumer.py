@@ -44,7 +44,7 @@ for msg in consumer:
     #database.save(msg.value)
     #file.write(msg.value)
     for i in msg.value.items():
-        file.write(i[0]+","+i[1])
+        file.write("ggggggggg")
         
     print (msg.value)
 
