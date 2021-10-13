@@ -42,7 +42,10 @@ for msg in consumer:
     # nor am I showing any code to connect to a backend database sink to
     # dump the incoming data. You will have to do that for the assignment.
     #database.save(msg.value)
-    file.write(msg.value)
+    #file.write(msg.value)
+    for i in msg.value.items():
+        file.write(i[0]+","+i[1])
+        
     print (msg.value)
 
 # we are done. As such, we are not going to get here as the above loop
