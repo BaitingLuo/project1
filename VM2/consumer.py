@@ -22,6 +22,7 @@ import json
 #database = couch['weather']
 # acquire the consumer
 # (you will need to change this to your bootstrap server's IP addr)
+print("consumer start")
 consumer = KafkaConsumer (bootstrap_servers="129.114.27.120:9092",value_deserializer=lambda m: json.loads(m.decode('utf-8')))
 
 # subscribe to topic
