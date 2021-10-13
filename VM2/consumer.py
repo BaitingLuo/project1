@@ -15,11 +15,11 @@ import os   # need this for popen
 import time # for sleep
 from kafka import KafkaConsumer  # consumer of events
 import json
-import couchdb
+#import couchdb
 # We can make this more sophisticated/elegant but for now it is just
 # hardcoded to the setup I ehave on my local VMs
-couch = couchdb.Server('http://admin:1251314qwe@127.0.0.1:5984/')
-database = couch['weather']
+#couch = couchdb.Server('http://admin:1251314qwe@127.0.0.1:5984/')
+#database = couch['weather']
 # acquire the consumer
 # (you will need to change this to your bootstrap server's IP addr)
 consumer = KafkaConsumer (bootstrap_servers="129.114.27.120:9092",value_deserializer=lambda m: json.loads(m.decode('utf-8')))
@@ -40,7 +40,7 @@ for msg in consumer:
     # Note that I am not showing code to obtain the incoming data as JSON
     # nor am I showing any code to connect to a backend database sink to
     # dump the incoming data. You will have to do that for the assignment.
-    database.save(msg.value)
+    #database.save(msg.value)
     print (msg.value)
 
 # we are done. As such, we are not going to get here as the above loop
