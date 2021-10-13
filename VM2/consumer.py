@@ -27,7 +27,7 @@ consumer = KafkaConsumer (bootstrap_servers="129.114.27.120:9092",value_deserial
 
 # subscribe to topic
 consumer.subscribe (topics=["utilizations"])
-
+file = open("consumer_output.txt", 'w')
 # we keep reading and printing
 for msg in consumer:
     # what we get is a record. From this record, we are interested in printing
@@ -42,6 +42,7 @@ for msg in consumer:
     # nor am I showing any code to connect to a backend database sink to
     # dump the incoming data. You will have to do that for the assignment.
     #database.save(msg.value)
+    file.write(msg.value)
     print (msg.value)
 
 # we are done. As such, we are not going to get here as the above loop
